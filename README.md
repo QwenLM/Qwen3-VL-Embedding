@@ -249,7 +249,7 @@ Only effective when video input is a video file:
 Qwen3VLEmbedder(
     model_name_or_path="./models/Qwen3-VL-Embedding-2B",
     max_length=8192,           # Default context length
-    min_pixels=None,           # Minimum pixels for input images
+    min_pixels=4096,           # Minimum pixels for input images
     max_pixels=1843200,        # Maximum pixels for input images (equivalent to 1280×1440 resolution)
     total_pixels=7864320,      # Maximum total pixels for input videos (multiplied by 2 in model)
                               # For a 16-frame video, each frame can have up to 983040 pixels (1280×768 resolution)
