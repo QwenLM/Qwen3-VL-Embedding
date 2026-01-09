@@ -374,6 +374,8 @@ We provide comprehensive examples in `examples/embedding.ipynb` demonstrating va
 
 Examples for video and visual document tasks are presented in the appendix of [technical report](assets/qwen3vlembedding_technical_report.pdf)
 
+We also provide an end-to-end multimodal RAG example using Qwen3-VL-Embedding, Qwen3-VL-Reranker and Qwen3-VL [here](https://github.com/QwenLM/Qwen3-VL-Embedding/blob/main/examples/Qwen3VL_Multimodal_RAG.ipynb).
+
 ### Reranking Model
 
 Coming soon.
