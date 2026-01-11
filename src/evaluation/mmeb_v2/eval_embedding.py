@@ -301,7 +301,8 @@ def main():
                     qry_embeds = pickle.load(f)  # np.ndarray [Nq, D]
                 with open(cand_embed_path, 'rb') as f:
                     cand_embed_dict = pickle.load(f)  # Dict {id: [D]}
-                gt_infos = [json.loads(l) for l in open(dataset_info_path)]
+                # Explicitly specify UTF-8 encoding to handle non-ASCII characters in dataset metadata
+                gt_infos = [json.loads(l) for l in open(dataset_info_path, encoding='utf-8')]
                 
                 device = model.device
                 pred_dicts = []
