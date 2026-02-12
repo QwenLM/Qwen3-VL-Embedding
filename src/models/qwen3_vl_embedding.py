@@ -162,6 +162,7 @@ class Qwen3VLEmbedder():
         self, 
         model_name_or_path: str, 
         max_length: int = MAX_LENGTH,
+        truncation: bool = True,
         min_pixels: int = MIN_PIXELS,
         max_pixels: int = MAX_PIXELS,
         total_pixels: int = MAX_TOTAL_PIXELS,
@@ -173,6 +174,7 @@ class Qwen3VLEmbedder():
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
         self.max_length = max_length
+        self.truncation = truncation
         self.min_pixels = min_pixels
         self.max_pixels = max_pixels
         self.total_pixels = total_pixels
@@ -354,7 +356,7 @@ class Qwen3VLEmbedder():
             videos, video_metadata = None, None
 
         inputs = self.processor(
-            text=text, images=images, videos=videos, video_metadata=video_metadata, truncation=True, 
+            text=text, images=images, videos=videos, video_metadata=video_metadata, truncation=self.truncation, 
             max_length=self.max_length, padding=True, do_resize=False, return_tensors='pt',
             **video_kwargs
         )
