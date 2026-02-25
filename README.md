@@ -102,13 +102,17 @@ Both models are built through a multi-stage training paradigm that fully leverag
 
 ## Installation
 
-### Setup Environment
-
 ```bash
 # Clone the repository
 git clone https://github.com/QwenLM/Qwen3-VL-Embedding.git
 cd Qwen3-VL-Embedding
+```
 
+Choose to use a UV environment or a Conda environment.
+
+### Setup UV Environment
+
+```bash
 # Run the script to setup the environment
 bash scripts/setup_environment.sh
 ```
@@ -120,6 +124,17 @@ The setup script will automatically:
 After setup completes, activate the environment:
 ```bash
 source .venv/bin/activate
+```
+
+### Setup Conda Environment
+
+```bash
+# create your conda environment
+conda create -n myenv python=3.12
+conda activate myenv
+# Run the script to setup the environment
+bash scripts/setup_conda_environments.sh
+pip install -r requirements.txt
 ```
 
 ### Download Models
@@ -137,16 +152,20 @@ Our models are available on both Hugging Face and ModelScope.
 
 **Download from Hugging Face:**
 ```bash
-uv pip install huggingface-hub
+uv pip install huggingface-hub # or pip install huggingface-hub
 
-huggingface-cli download Qwen/Qwen3-VL-Embedding-2B --local-dir ./models/Qwen3-VL-Embedding-2B
+# huggingface-cli download Qwen/Qwen3-VL-Embedding-2B --local-dir ./models/Qwen3-VL-Embedding-2B
+# huggingface-cli download Qwen/Qwen3-VL-Reranker-2B --local-dir ./models/Qwen3-VL-Reranker-2B
+hf download Qwen/Qwen3-VL-Embedding-2B --local-dir ./models/Qwen3-VL-Embedding-2B
+hf download Qwen/Qwen3-VL-Reranker-2B --local-dir ./models/Qwen3-VL-Reranker-2B
 ```
 
 **Download from ModelScope:**
 ```bash
-uv pip install modelscope
+uv pip install modelscope # or pip install modelscope
 
 modelscope download --model qwen/Qwen3-VL-Embedding-2B --local_dir ./models/Qwen3-VL-Embedding-2B
+modelscope download --model qwen/Qwen3-VL-Reranker-2B --local_dir ./models/Qwen3-VL-Reranker-2B
 ```
 
 ## Usage

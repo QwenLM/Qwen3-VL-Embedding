@@ -10,4 +10,3 @@ qwen-vl-utils>=0.0.14
 scipy>=1.16.3
 setuptools>=80.9.0
 transformers>=4.57.3
-faiss-gpu-cu12
